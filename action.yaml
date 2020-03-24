@@ -2,7 +2,7 @@ name: 'Read TOML'
 description: 'Reads a specified key from a TOML file'
 inputs:
   path:  
-    description: 'Path to TOML file, relative to /github/workspace/'
+    description: 'Absolute path to TOML file'
     required: true
   key: 
     description: 'Absolute key to value in TOML file'
@@ -12,6 +12,6 @@ runs:
   image: 'Dockerfile'
   args:
     - --path 
-    - /github/workspace/${{ inputs.path }}
+    - ${{ inputs.path }}
     - --key 
     - ${{ inputs.key }}
