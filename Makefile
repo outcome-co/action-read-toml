@@ -9,4 +9,4 @@ docker-build:
 
 
 docker-clean:
-	docker rm $(APP_NAME)
+	docker image rm $(APP_NAME)
