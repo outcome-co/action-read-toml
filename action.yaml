@@ -1,0 +1,17 @@
+name: 'Read TOML'
+description: 'Reads a specified key from a TOML file'
+inputs:
+  path:  
+    description: 'Absolute path to TOML file'
+    required: true
+  key: 
+    description: 'Absolute key to value in TOML file'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - --path 
+    - ${{ inputs.path }}
+    - --key 
+    - ${{ inputs.key }}
