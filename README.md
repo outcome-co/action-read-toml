@@ -34,7 +34,7 @@ The output name will be the key, with `.` replaced by `_` to avoid conflicts in 
 
 ### Example
 
-You can find this (example in this repository)[https://github.com/outcome-co/action-read-toml/actions?query=workflow%3A%22Sample+Execution%22].
+You can find this [example in this repository](https://github.com/outcome-co/action-read-toml/actions?query=workflow%3A%22Sample+Execution%22).
 
 ```yaml
 name: Sample Execution
