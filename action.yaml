@@ -2,7 +2,7 @@ name: 'Read TOML'
 description: 'Reads a specified key from a TOML file'
 inputs:
   path:  
-    description: 'Absolute path to TOML file'
+    description: 'Path to TOML file, relative to $GITHUB_WORKSPACE'
     required: true
   key: 
     description: 'Absolute key to value in TOML file'
