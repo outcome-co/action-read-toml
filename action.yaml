@@ -11,5 +11,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - --path /github/workspace/${{ inputs.path }}
-    - --key ${{ inputs.key }}
+    - --path 
+    - /github/workspace/${{ inputs.path }}
+    - --key 
+    - ${{ inputs.key }}
