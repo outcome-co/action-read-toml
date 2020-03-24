@@ -3,6 +3,7 @@
 import sys
 import toml
 import click
+import os
 
 
 _scalar_types = [int, str, bool, float]
@@ -11,8 +12,7 @@ _scalar_types = [int, str, bool, float]
 @click.command()
 @click.option("--path", help="The path to the TOML file", required=True, type=click.File("r"))
 @click.option("--key", help="The path to read from the TOML file", required=True)
-@click.option("--action-output", help="Indicates whether to output the value as a GitHub Action Output", default=False, is_flag=True)
-def read_toml(path, key: str, action_output: bool):
+def read_toml(path, key: str):
     """
     Reads the value specified by the path from a TOML file.
     The path parameter should be a '.' separated sequences of keys
@@ -50,7 +50,7 @@ def read_toml(path, key: str, action_output: bool):
         sys.exit(-1)
 
     def output(value: str):
-        if action_output:
+        if os.environ.get('GITHUB_ACTIONS', False):
             action_key = key.replace('.', '_')
             print(f"::set-output name={action_key}::{value}")
         else:
