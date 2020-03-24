@@ -16,7 +16,7 @@ jobs:
   
         - name: "Read TOML"
           id: read_toml
-          uses: outcome-co/action-read-toml@master
+          uses: ./
           with:
             path: sample.toml
             key: info.version
