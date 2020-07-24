@@ -1,14 +1,12 @@
-FROM python:3.7-alpine
+FROM python:3-slim AS build-env
+ADD requirements.txt /build/
+WORKDIR /build
 
-WORKDIR /app
+ADD ./bin/read_toml.py /app/
+RUN pip install -r requirements.txt -t /app/venv
 
-RUN apk add bash
+FROM gcr.io/distroless/python3-debian10
 
-ADD requirements.txt .
-
-RUN pip install -r requirements.txt
-
-ADD ./bin/read_toml.py .
-ADD ./bin/entrypoint.sh .
-
-ENTRYPOINT [ "/app/entrypoint.sh" ]
+COPY --from=build-env /app /app
+ENV PYTHONPATH=/app/venv
+ENTRYPOINT [ "/usr/bin/python3", "/app/read_toml.py"]

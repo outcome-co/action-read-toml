@@ -95,4 +95,15 @@ def _read_path(path, key: str):
 
 
 if __name__ == "__main__":
+    # If we're in a Github Action, the GITHUB_WORKSPACE variable
+    # will be set, and corresponds to the directory mounted as a volume
+    # in the Docker.
+    #
+    # Since we're likely to be working on the files in the GITHUB_WORKSPACE
+    # we automatically change directories
+    if 'GITHUB_WORKSPACE' in os.environ:
+        workspace = os.environ['GITHUB_WORKSPACE']
+        print(f'Switching to Github Workspace: {workspace}')
+        os.chdir(workspace)
+
     read_toml()

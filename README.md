@@ -1,5 +1,5 @@
 # action-read-toml
-![ci-badge](https://github.com/outcome-co/action-read-toml/workflows/Continuous%20Integration/badge.svg) ![version-badge](https://img.shields.io/badge/version-1.1.0-brightgreen)
+![ci-badge](https://github.com/outcome-co/action-read-toml/workflows/Checks/badge.svg) ![version-badge](https://img.shields.io/badge/version-1.1.0-brightgreen)
 
 A Github Action to read a specified key from a TOML file and store it in a step output.
 
@@ -34,8 +34,6 @@ The output name will be the key, with `.` replaced by `_` to avoid conflicts in 
 
 ### Example
 
-You can find this [example in this repository](https://github.com/outcome-co/action-read-toml/actions?query=workflow%3A%22Sample+Execution%22).
-
 ```yaml
 name: Sample Execution
 
@@ -55,7 +53,7 @@ jobs:
   
         - name: "Read TOML"
           id: read_toml
-          uses: ./
+          uses: outcome-co/action-read-toml@1.1.0
           with:
             path: sample.toml
             key: info.version
