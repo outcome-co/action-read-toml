@@ -7,8 +7,6 @@ include make/vars.Makefile
 
 .PHONY: docker-build docker-run docker-stop docker-clean docker-console docker-push
 
-DOCKER_REGISTRY = $(shell docker run --rm -v $$(pwd):/work/ outcomeco/action-read-toml:latest --path /work/pyproject.toml --key tool.docker.registry)
-DOCKER_REPOSITORY = $(shell docker run --rm -v $$(pwd):/work/ outcomeco/action-read-toml:latest --path /work/pyproject.toml --key tool.docker.repository)
 DOCKER_TAG_BASE = $(DOCKER_REGISTRY)/$(DOCKER_REPOSITORY)/$(APP_NAME)
 
 ifeq ($(IN_GIT_MAIN),1)
