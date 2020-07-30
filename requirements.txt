@@ -1,2 +1,1 @@
-toml
-click
+outcome-read-toml>=0.2.2

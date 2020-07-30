@@ -19,13 +19,6 @@ jobs:
             token: ${{ secrets.OTTO_TOKEN }}
             fetch-depth: 0
 
-        # If we don't have correct commit messages, we 
-        # can't get the new version number
-        - name: Lint commit messages
-          uses: wagoid/commitlint-github-action@v1
-          with:
-            failOnWarnings: true
-
         - name: Configure Otto
           run: |
             git config --local user.email "otc-builder@outcome.co"
