@@ -4,7 +4,7 @@ port = 8000
 
 [tool.poetry]
 name = "action-read-toml"
-version = "1.2.1"
+version = "1.8.0"
 description = ""
 authors = ["Outcome Engineering <engineering@outcome.co>"]
 readme = "README.md"
