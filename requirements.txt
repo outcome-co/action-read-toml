@@ -1,1 +1,3 @@
-outcome-read-toml>=0.2.2
+click==7.1.2
+outcome-read-toml==0.3.0
+toml==0.10.1

@@ -1,7 +1,9 @@
 ifndef MK_DOCKER
 MK_DOCKER=1
 
-include make/vars.Makefile
+include make/env.Makefile
+include make/vars.app.Makefile
+include make/vars.docker.Makefile
 
 # DOCKER
 

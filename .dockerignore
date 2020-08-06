@@ -1,0 +1,13 @@
+# Exclude everything
+*
+
+# Then include some files
+!pyproject.toml
+!poetry.lock
+!Makefile
+!make
+!./src/
+
+# The exclude some specific paths
+./src/**/*.pyc
+./src/**/__pycache__

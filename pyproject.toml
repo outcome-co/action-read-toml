@@ -1,0 +1,74 @@
+
+[app]
+port = 8000
+
+[tool.poetry]
+name = "action-read-toml"
+version = "1.2.1"
+description = ""
+authors = ["Outcome Engineering <engineering@outcome.co>"]
+readme = "README.md"
+
+[tool.docker]
+registry = "docker.io"
+repository = "outcomeco"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+outcome-read-toml = "^1.1.0"
+
+[tool.poetry.dev-dependencies]
+outcome-devkit = "^3.0.1"
+
+[tool.black]
+line-length = 130
+include = '\.pyi?$'
+# This stops black from rewriting quotes
+skip-string-normalization = true
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | \.cache
+)/
+'''
+
+[tool.isort]
+skip_glob = "*/.cache/**/*"
+
+[tool.coverage.run]
+branch = true
+data_file = 'coverage/data'
+source = ['src']
+omit = [
+   "test/*"
+]
+parallel = true
+plugins = ["outcome.devkit.env_coverage"]
+
+[tool.coverage.report]
+fail_under = 100
+skip_empty = true
+exclude_lines = ["if __name__ == .__main__.:"]   
+
+[tool.coverage.html]
+show_contexts = true
+directory = 'coverage/html'
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "1.7.1"
+tag_format = "v$version"
+bump_message = "chore(version): $current_version → $new_version"
+version_files = ["pyproject.toml:version", "README.md:version-badge"]
+
+[build-system]
+requires = ["poetry>=1.0.5"]
+build-backend = "poetry.masonry.api"
