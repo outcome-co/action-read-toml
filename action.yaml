@@ -12,7 +12,7 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: 'docker://outcomeco/action-read-toml:1.8.1'
+  image: 'docker://outcomeco/action-read-toml:1.8.2'
   args:
     - --path 
     - ${{ inputs.path }}
