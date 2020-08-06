@@ -38,5 +38,5 @@ def main():
     read_toml.read_toml(read_toml_args)
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     main()

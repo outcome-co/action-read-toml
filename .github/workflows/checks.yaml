@@ -41,6 +41,11 @@ jobs:
           with:
             path: pyproject.toml
             key: tool.poetry.dependencies.python
+        
+        - name: Check TODOs
+          uses: outcome-co/action-check-todos@master
+          with:
+            pattern: "**/*"
 
         - name: Set up python ${{ steps.python_version.outputs.tool_poetry_dependencies_python }}
           uses: actions/setup-python@v2.0.2
