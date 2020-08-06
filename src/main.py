@@ -22,9 +22,9 @@ def switch_working_directory():
 
 
 def get_read_toml_args():
-    # We need to remove empty strings, because github passes optionnal 
+    # We need to remove empty strings, because github passes optionnal
     # parameter as empty string if not specified
-    read_toml_args = [arg for arg in sys.argv[1:] if arg != ""]
+    read_toml_args = [arg for arg in sys.argv[1:] if arg != '']
     # If we are in Github Actions we add --github-actions arg to format output accordingly
     if os.environ.get('GITHUB_ACTIONS', False):
         read_toml_args += ['--github-actions']
@@ -38,5 +38,5 @@ def main():
     read_toml.read_toml(read_toml_args)
 
 
-if __name__ == '__main__': # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     main()
