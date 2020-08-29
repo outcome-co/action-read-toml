@@ -13,16 +13,15 @@ def test_switch_called_before_read(mock_get_args: Mock):
             assert m.mock_calls == [call.switch(), call.read(['arg'])]
 
 
-@patch('outcome.read_toml.bin.say', autospec=True)
 @patch('src.main.os.chdir', autospec=True)
 class TestSwitch:
     @patch.dict('os.environ', {'GITHUB_WORKSPACE': '/workspace'})
-    def test_switch(self, mock_chdir: Mock, mock_say: Mock):
+    def test_switch(self, mock_chdir: Mock):
         main.switch_working_directory()
         mock_chdir.assert_called_once_with('/workspace')
 
     @patch.dict('os.environ', {}, clear=True)
-    def test_no_switch(self, mock_chdir: Mock, mock_say: Mock):
+    def test_no_switch(self, mock_chdir: Mock):
         main.switch_working_directory()
         mock_chdir.assert_not_called()
 

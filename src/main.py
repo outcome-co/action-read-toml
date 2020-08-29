@@ -6,6 +6,7 @@ import os
 import sys
 
 from outcome.read_toml import bin as read_toml
+from outcome.utils import console
 
 
 def switch_working_directory():
@@ -17,7 +18,7 @@ def switch_working_directory():
     # we automatically change directories
     workspace = os.environ.get('GITHUB_WORKSPACE')
     if workspace:
-        read_toml.say(f'Switching to Github Workspace: {workspace}')
+        console.write(f'Switching to Github Workspace: {workspace}')
         os.chdir(workspace)
 
 

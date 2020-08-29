@@ -7,9 +7,6 @@ inputs:
   key: 
     description: 'Absolute key to value in TOML file'
     required: true
-  check-only:
-    description: 'If present, only checks presence of key in TOML file'
-    required: false
 runs:
   using: 'docker'
   image: 'docker://outcomeco/action-read-toml:1.8.3'
@@ -18,4 +15,3 @@ runs:
     - ${{ inputs.path }}
     - --key 
     - ${{ inputs.key }}
-    - ${{ inputs.check-only }}
