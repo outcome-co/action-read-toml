@@ -505,14 +505,14 @@ description = "IPython: Productive Interactive Computing"
 name = "ipython"
 optional = false
 python-versions = ">=3.7"
-version = "7.18.0"
+version = "7.18.1"
 
 [package.dependencies]
 appnope = "*"
 backcall = "*"
 colorama = "*"
 decorator = "*"
-jedi = ">=0.16"
+jedi = ">=0.10"
 pexpect = ">4.3"
 pickleshare = "*"
 prompt-toolkit = ">=2.0.0,<3.0.0 || >3.0.0,<3.0.1 || >3.0.1,<3.1.0"
@@ -690,7 +690,7 @@ description = "A small utility to read keys from TOML files."
 name = "outcome-read-toml"
 optional = false
 python-versions = ">=3.8,<4.0"
-version = "1.2.1"
+version = "1.2.2"
 
 [package.dependencies]
 click = ">=7.1.2,<8.0.0"
@@ -830,7 +830,7 @@ description = "Library for building powerful interactive command lines in Python
 name = "prompt-toolkit"
 optional = false
 python-versions = ">=3.6.1"
-version = "3.0.6"
+version = "3.0.7"
 
 [package.dependencies]
 wcwidth = "*"
@@ -866,7 +866,7 @@ description = "Python docstring style checker"
 name = "pydocstyle"
 optional = false
 python-versions = ">=3.5"
-version = "5.1.0"
+version = "5.1.1"
 
 [package.dependencies]
 snowballstemmer = "*"
@@ -1341,8 +1341,8 @@ identify = [
     {file = "identify-1.4.29.tar.gz", hash = "sha256:9f5fcf22b665eaece583bd395b103c2769772a0f646ffabb5b1f155901b07de2"},
 ]
 ipython = [
-    {file = "ipython-7.18.0-py3-none-any.whl", hash = "sha256:73c61ebcc30baadf600b870c3a38b96d6e5ae8dde5ef5425b8aab75dc9a9a602"},
-    {file = "ipython-7.18.0.tar.gz", hash = "sha256:4dbacf73ac7409c33c918044476eefe4c2428ce0ca4cc118aee718ac6026ac0f"},
+    {file = "ipython-7.18.1-py3-none-any.whl", hash = "sha256:2e22c1f74477b5106a6fb301c342ab8c64bb75d702e350f05a649e8cb40a0fb8"},
+    {file = "ipython-7.18.1.tar.gz", hash = "sha256:a331e78086001931de9424940699691ad49dfb457cea31f5471eae7b78222d5e"},
 ]
 ipython-genutils = [
     {file = "ipython_genutils-0.2.0-py2.py3-none-any.whl", hash = "sha256:72dd37233799e619666c9f639a9da83c34013a73e8bbc79a7a6348d93c61fab8"},
@@ -1436,8 +1436,8 @@ outcome-devkit = [
     {file = "outcome_devkit-3.0.1-py3-none-any.whl", hash = "sha256:ba687258b2e08285a55cb5adf6ae9d6a6f2ee56b617efa9e63638697478d2d98"},
 ]
 outcome-read-toml = [
-    {file = "outcome-read-toml-1.2.1.tar.gz", hash = "sha256:baf7e84ebc73549175e166d734744fdbe1864b28b7e0c917c812393425b6f014"},
-    {file = "outcome_read_toml-1.2.1-py3-none-any.whl", hash = "sha256:dc7a01a6046a5503ec99a1f6a328318a2545a92741da44e867751e02078389c4"},
+    {file = "outcome-read-toml-1.2.2.tar.gz", hash = "sha256:4a4e223ff33d7e2800000714a299106610c3d256530d2411bae39be80f983971"},
+    {file = "outcome_read_toml-1.2.2-py3-none-any.whl", hash = "sha256:0d8b635968ce374a91e427ff68503b99b483b644cb26e9e7f031d0cd173009ce"},
 ]
 outcome-utils = [
     {file = "outcome-utils-3.3.0.tar.gz", hash = "sha256:506c7f2fd2d13c96cd245eae638acebe0f4d921f54a9d4c90c2af5fe33e0dbdf"},
@@ -1483,8 +1483,8 @@ pre-commit = [
     {file = "pre_commit-2.7.1.tar.gz", hash = "sha256:c54fd3e574565fe128ecc5e7d2f91279772ddb03f8729645fa812fe809084a70"},
 ]
 prompt-toolkit = [
-    {file = "prompt_toolkit-3.0.6-py3-none-any.whl", hash = "sha256:683397077a64cd1f750b71c05afcfc6612a7300cb6932666531e5a54f38ea564"},
-    {file = "prompt_toolkit-3.0.6.tar.gz", hash = "sha256:7630ab85a23302839a0f26b31cc24f518e6155dea1ed395ea61b42c45941b6a6"},
+    {file = "prompt_toolkit-3.0.7-py3-none-any.whl", hash = "sha256:83074ee28ad4ba6af190593d4d4c607ff525272a504eb159199b6dd9f950c950"},
+    {file = "prompt_toolkit-3.0.7.tar.gz", hash = "sha256:822f4605f28f7d2ba6b0b09a31e25e140871e96364d1d377667b547bb3bf4489"},
 ]
 ptyprocess = [
     {file = "ptyprocess-0.6.0-py2.py3-none-any.whl", hash = "sha256:d7cc528d76e76342423ca640335bd3633420dc1366f258cb31d05e865ef5ca1f"},
@@ -1499,8 +1499,8 @@ pycodestyle = [
     {file = "pycodestyle-2.6.0.tar.gz", hash = "sha256:c58a7d2815e0e8d7972bf1803331fb0152f867bd89adf8a01dfd55085434192e"},
 ]
 pydocstyle = [
-    {file = "pydocstyle-5.1.0-py3-none-any.whl", hash = "sha256:08374b9d4d2b7164bae50b71bb24eb0d74a56b309029d5d502264092fa7db0c3"},
-    {file = "pydocstyle-5.1.0.tar.gz", hash = "sha256:4ca3c7736d36f92bb215dd74ef84ac3d6c146edd795c7afc5154c10f1eb1f65a"},
+    {file = "pydocstyle-5.1.1-py3-none-any.whl", hash = "sha256:aca749e190a01726a4fb472dd4ef23b5c9da7b9205c0a7857c06533de13fd678"},
+    {file = "pydocstyle-5.1.1.tar.gz", hash = "sha256:19b86fa8617ed916776a11cd8bc0197e5b9856d5433b777f51a3defe13075325"},
 ]
 pyflakes = [
     {file = "pyflakes-2.2.0-py2.py3-none-any.whl", hash = "sha256:0d94e0e05a19e57a99444b6ddcf9a6eb2e5c68d3ca1e98e90707af8152c90a92"},
