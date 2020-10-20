@@ -1,5 +1,5 @@
 # action-read-toml
-![ci-badge](https://github.com/outcome-co/action-read-toml/workflows/Release/badge.svg?branch=v2.0.1) ![version-badge](https://img.shields.io/badge/version-2.0.1-brightgreen)
+![ci-badge](https://github.com/outcome-co/action-read-toml/workflows/Release/badge.svg?branch=v2.0.2) ![version-badge](https://img.shields.io/badge/version-2.0.2-brightgreen)
 
 A Github Action to read a specified key from a TOML file and store it in a step output.
 
