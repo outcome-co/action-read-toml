@@ -8,7 +8,7 @@ key_2 = "key_two"
 
 [tool.poetry]
 name = "action-read-toml"
-version = "2.0.0"
+version = "2.0.1"
 description = ""
 authors = ["Outcome Engineering <engineering@outcome.co>"]
 readme = "README.md"
@@ -67,7 +67,7 @@ directory = 'coverage/html'
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "2.0.0"
+version = "2.0.1"
 tag_format = "v$version"
 bump_message = "chore(version): $current_version → $new_version"
 version_files = ["pyproject.toml:version", "README.md:version-badge", "action.yaml:image"]
