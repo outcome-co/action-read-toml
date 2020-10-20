@@ -31,10 +31,10 @@ docker-build:
 	docker build $(DOCKER_BUILD_ARGS) -t $(DOCKER_IMAGE_NAME_VERSION) .
 	docker tag $(DOCKER_IMAGE_NAME_VERSION) $(DOCKER_IMAGE_NAME_LATEST)
 
-docker-run: docker-build ## Build and run the docker container
+docker-run: ## Build and run the docker container
 	docker run --rm --name $(APP_NAME) -it $(DOCKER_IMAGE_NAME_VERSION)
 
-docker-console: docker-build ## Run a bash console in the docker container
+docker-console: ## Run a bash console in the docker container
 	docker run --rm --name $(APP_NAME) -it --entrypoint /bin/bash $(DOCKER_IMAGE_NAME_VERSION)
 
 docker-clean: ## Delete the docker image

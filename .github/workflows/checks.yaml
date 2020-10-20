@@ -39,6 +39,8 @@ jobs:
       steps:
         - name: Check out code
           uses: actions/checkout@v2.3.3
+          with:
+            ref: ${{ github.event.pull_request.head.ref }}
 
         - name: Get python version
           uses: outcome-co/action-read-toml@v1.9.3

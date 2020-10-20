@@ -1,0 +1,20 @@
+# Local test-only version that rebuilds from the Dockerfile each time
+# used by the self_test workflow
+
+name: 'Read TOML'
+description: 'Reads a specified key from a TOML file'
+inputs:
+  path:  
+    description: 'Path to TOML file, relative to $GITHUB_WORKSPACE'
+    required: true
+  key: 
+    description: 'Absolute key to value in TOML file'
+    required: true
+runs:
+  using: 'docker'
+  image: '../Dockerfile'
+  args:
+    - --path 
+    - ${{ inputs.path }}
+    - --key 
+    - ${{ inputs.key }}

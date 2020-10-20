@@ -27,6 +27,17 @@ You can use the action to read a key from the file.
         
         # Read the key
         key: info.version
+
+
+- uses: outcome-co/action-read-toml@master
+    with:
+        # Read the specified TOML file
+        path: $GITHUB_WORKSPACE/sample.toml
+        
+        # Read multiple keys
+        key: |
+            info.version
+            info.other_key
 ```
 
 ### Output name
