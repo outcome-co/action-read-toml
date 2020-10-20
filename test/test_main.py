@@ -92,6 +92,17 @@ class TestCalls:
                 call('v2'),
             ]
 
+    @patch('outcome.read_toml.bin.read_toml', autospec=True)
+    def test_check_only(self, mock_read_toml: Mock, mock_console_write: Mock):
+        with patch('src.main.sys', autospec=True) as mocked_sys:
+            mocked_sys.argv = ['exe', '--path', 'file.toml', '--key', 'key_to_read', '--check-only']
+            mock_read_toml.return_value = 'v1'
+
+            main.main()
+
+            mock_read_toml.assert_called_once_with(path='file.toml', key='key_to_read', check_only=True)
+            mock_console_write.assert_called_once_with('v1')
+
 
 @pytest.mark.usefixtures('without_switch_working_directory')
 @patch('outcome.read_toml.bin.read_toml', autospec=True)

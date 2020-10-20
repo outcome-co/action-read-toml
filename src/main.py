@@ -9,8 +9,6 @@ from typing import Dict, List, Union
 from outcome.read_toml import bin as read_toml
 from outcome.utils import console
 
-gh_arg = '--github-actions'
-
 
 def switch_working_directory():
     # If we're in a Github Action, the GITHUB_WORKSPACE variable
@@ -27,12 +25,28 @@ def switch_working_directory():
 
 CallArgs = Dict[str, Union[str, bool]]
 
+_gh_arg = '--github-actions'
+_check_arg = '--check-only'
+
+_ignore_args = {'', _gh_arg}
+_flag_args = {_check_arg}
+
 
 def get_read_toml_args() -> List[CallArgs]:
     # We need to remove empty strings, because github passes optional
     # parameters as empty strings if not specified
-    read_toml_args = [arg.lstrip('-').replace('-', '_') for arg in sys.argv[1:] if arg not in {'', gh_arg}]
-    # If we are in Github Actions we add --github-actions arg to format output accordingly
+    read_toml_args = []
+    for arg in sys.argv[1:]:
+        if arg in _ignore_args:
+            continue
+
+        arg_clean = arg.lstrip('-').replace('-', '_')
+        read_toml_args.append(arg_clean)
+
+        # If the arg is a flag, we inject a 'True' value
+        # to be paired with the argument
+        if arg in _flag_args:
+            read_toml_args.append(True)
 
     # Group the flags and their values
     # ["--flag", "value", "--other", "other_value"] -> [("--flag", "value"), ("--other", "other_value")]
@@ -64,7 +78,7 @@ def main():
     """Main function wrapping read-toml."""
     switch_working_directory()
 
-    if gh_arg in sys.argv:
+    if _gh_arg in sys.argv:
         write = output_gh
     else:
         write = output
