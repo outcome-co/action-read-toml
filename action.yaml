@@ -11,6 +11,7 @@ runs:
   using: 'docker'
   image: 'docker://outcomeco/action-read-toml:1.10.0'
   args:
+    - --github-actions
     - --path 
     - ${{ inputs.path }}
     - --key 

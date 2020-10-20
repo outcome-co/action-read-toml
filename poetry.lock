@@ -765,7 +765,7 @@ description = "A small utility to read keys from TOML files."
 name = "outcome-read-toml"
 optional = false
 python-versions = ">=3.8.5,<3.9.0"
-version = "1.2.5"
+version = "2.0.0"
 
 [package.dependencies]
 click = ">=7.1.2,<8.0.0"
@@ -1288,7 +1288,7 @@ python-versions = "*"
 version = "0.3"
 
 [metadata]
-content-hash = "835a796da58510bf21e537b461081c96c6640b72e325afcbae05b480fe2f6295"
+content-hash = "c96f15db6cb6ca144d88a98dd53146ffd8efbf581706d171633ea5372143640a"
 lock-version = "1.0"
 python-versions = "~3.8.5"
 
@@ -1628,8 +1628,8 @@ outcome-devkit = [
     {file = "outcome_devkit-3.2.0-py3-none-any.whl", hash = "sha256:a73525a62a99c1bf614f812286b0d78b4aa730774f33aa163ad4e7ab445ef149"},
 ]
 outcome-read-toml = [
-    {file = "outcome-read-toml-1.2.5.tar.gz", hash = "sha256:a6460608db04856871b54d0a57e10696c945ada4358ba5eb8779b703db07159f"},
-    {file = "outcome_read_toml-1.2.5-py3-none-any.whl", hash = "sha256:169952cd2b097b5842a180d3c07cc42e3b455ddae8c0c0e247366a8c0d7e11b7"},
+    {file = "outcome-read-toml-2.0.0.tar.gz", hash = "sha256:54691b25210e19323016bbf871982a549b04a6ae19199eabcbfc506b4a0d6e95"},
+    {file = "outcome_read_toml-2.0.0-py3-none-any.whl", hash = "sha256:76504a126155d9d9719ed27b1cbbf9120eabab1986221699a105cf4be2f9748f"},
 ]
 outcome-utils = [
     {file = "outcome-utils-4.12.5.tar.gz", hash = "sha256:a76419b827d9e5ba92038be259c0823fc77de92575512dbe850b9bb5bcff52e7"},
