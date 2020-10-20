@@ -20,6 +20,8 @@ repository = "outcomeco"
 [tool.poetry.dependencies]
 python = "~3.8.5"
 outcome-read-toml = "^2.0.0"
+typer = "^0.3.2"
+makefun = "^1.9.4"
 
 [tool.poetry.dev-dependencies]
 outcome-devkit = "^3.0.1"

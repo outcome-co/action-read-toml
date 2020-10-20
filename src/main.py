@@ -2,12 +2,38 @@
 
 """A utility to read values from TOML files."""
 
+import inspect
 import os
-import sys
-from typing import Dict, List, Union
+from pathlib import Path
 
+import makefun
+import typer
 from outcome.read_toml import bin as read_toml
 from outcome.utils import console
+
+
+def run(github_actions: bool, key: str, *args, **kwargs):
+    if github_actions:
+        switch_working_directory()
+
+    if github_actions:
+        write = output_gh
+    else:
+        write = output
+
+    keys = key.strip().split('\n')
+
+    for k in keys:
+        write(k, read_toml.read_toml(key=k, *args, **kwargs))
+
+
+def output(key, value):
+    console.write(value)
+
+
+def output_gh(key, value):
+    gh_var_key = key.replace('.', '_').replace('-', '_')
+    console.write(f'::set-output name={gh_var_key}::{value}')
 
 
 def switch_working_directory():
@@ -23,79 +49,44 @@ def switch_working_directory():
         os.chdir(workspace)
 
 
-CallArgs = Dict[str, Union[str, bool]]
+def build():
+    app = typer.Typer()
 
-_gh_arg = '--github-actions'
-_check_arg = '--check-only'
+    signature = inspect.signature(read_toml.read_toml)
 
-_ignore_args = {'', _gh_arg}
-_flag_args = {_check_arg}
+    # Typer doesn't handle Union types
+    # Remove the path parameter, which is of type Union[IO[str], str, Path]
+    # Replace it with path of type Path
 
+    # We'll also replace the key parameter with a parameter with typer.Option(...) as a default value
+    # which makes it behave like a required option: https://typer.tiangolo.com/tutorial/options/required/
+    # This is necessary to have the same interface as the underlying read-toml CLI
+    signature = makefun.remove_signature_parameters(signature, 'path', 'key')
+    params = list(signature.parameters.values())
 
-def get_read_toml_args() -> List[CallArgs]:
-    # We need to remove empty strings, because github passes optional
-    # parameters as empty strings if not specified
-    read_toml_args = []
-    for arg in sys.argv[1:]:
-        if arg in _ignore_args:
-            continue
+    path_parameter = inspect.Parameter(
+        'path', kind=inspect.Parameter.POSITIONAL_OR_KEYWORD, annotation=Path, default=typer.Option(...),
+    )
+    params.insert(0, path_parameter)
 
-        arg_clean = arg.lstrip('-').replace('-', '_')
-        read_toml_args.append(arg_clean)
+    key_parameter = inspect.Parameter(
+        'key', kind=inspect.Parameter.POSITIONAL_OR_KEYWORD, annotation=str, default=typer.Option(...),
+    )
+    params.insert(0, key_parameter)
 
-        # If the arg is a flag, we inject a 'True' value
-        # to be paired with the argument
-        if arg in _flag_args:
-            read_toml_args.append(True)
+    github_parameter = inspect.Parameter('github_actions', kind=inspect.Parameter.KEYWORD_ONLY, default=False, annotation=bool)
+    params.append(github_parameter)
 
-    # Group the flags and their values
-    # ["--flag", "value", "--other", "other_value"] -> [("--flag", "value"), ("--other", "other_value")]
-    arg_pairs = list(zip(*[iter(read_toml_args)] * 2))  # noqa: WPS435
+    signature = signature.replace(parameters=params)
 
-    # Convert to dict
-    arg_dict: CallArgs = dict(arg_pairs)
+    @app.command()
+    @makefun.wraps(read_toml.read_toml, new_sig=signature)
+    def read_toml_cli(*args, **kwargs):
+        run(*args, **kwargs)
 
-    # If --key contains a new line, then we're reading multiple keys
-    key_arg = arg_dict.pop('key', '').strip()
-    keys = key_arg.split('\n')
-
-    # Create a list of calls to make to read-toml, one for each key
-    args: List[CallArgs] = []
-
-    for key in keys:
-        # Create a new call from the provided arguments
-        key_args = arg_dict.copy()
-
-        # Make it specific to the key
-        key_args['key'] = key.strip()
-
-        args.append(key_args)
-
-    return args
-
-
-def main():
-    """Main function wrapping read-toml."""
-    switch_working_directory()
-
-    if _gh_arg in sys.argv:
-        write = output_gh
-    else:
-        write = output
-
-    for call_args in get_read_toml_args():
-        key = call_args['key']
-        write(key, read_toml.read_toml(**call_args))
-
-
-def output(key, value):
-    console.write(value)
-
-
-def output_gh(key, value):
-    gh_var_key = key.replace('.', '_')
-    console.write(f'::set-output name={gh_var_key}::{value}')
+    return app  # noqa: R504
 
 
 if __name__ == '__main__':  # pragma: no cover
-    main()
+    app = build()
+    app()

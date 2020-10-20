@@ -79,7 +79,7 @@ test: clean test-unit test-integration coverage ## Run all tests
 # i.e. SKIP_COVERAGE=1 when the `test` target has been called, or SKIP_COVERAGE=0 otherwise
 define run-pytest
 	@SKIP_COVERAGE=$(ALL_TESTS) $(MAKE) clean-coverage
-	poetry run coverage run --context=$(COVERAGE_CONTEXT) -m pytest --ff --maxfail=1 ./test
+	poetry run coverage run --context=$(COVERAGE_CONTEXT) -m pytest -vvv --ff --maxfail=1 ./test
 	poetry run coverage combine --append
 	@SKIP_COVERAGE=$(ALL_TESTS) $(MAKE) coverage
 endef
