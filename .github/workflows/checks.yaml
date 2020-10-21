@@ -43,7 +43,7 @@ jobs:
             ref: ${{ github.event.pull_request.head.ref }}
 
         - name: Get python version
-          uses: outcome-co/action-read-toml@v1.9.3
+          uses: outcome-co/action-read-toml@v2.0.2
           id: python_version
           with:
             path: pyproject.toml
