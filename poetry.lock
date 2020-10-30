@@ -724,7 +724,7 @@ python-versions = "*"
 
 [[package]]
 name = "outcome-devkit"
-version = "3.3.2"
+version = "3.3.3"
 description = "A package containing common dev dependencies for python projects."
 category = "dev"
 optional = false
@@ -1324,7 +1324,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.8.5"
-content-hash = "60eef16e2371e374a28c2ed6c5317230ae49293eadf618addda347f67d9b6d70"
+content-hash = "493f5c632f747332a63557d2c61999b4e12e1d431e87b73f6a689da6534577b2"
 
 [metadata.files]
 appdirs = [
@@ -1658,8 +1658,8 @@ nodeenv = [
     {file = "nodeenv-1.5.0.tar.gz", hash = "sha256:ab45090ae383b716c4ef89e690c41ff8c2b257b85b309f01f3654df3d084bd7c"},
 ]
 outcome-devkit = [
-    {file = "outcome-devkit-3.3.2.tar.gz", hash = "sha256:1e68865335e2233bccf81dbde67c800314c046734efc0f716f01559f194d56f5"},
-    {file = "outcome_devkit-3.3.2-py3-none-any.whl", hash = "sha256:89550a0f12008ae86dac463383cea8a69de68ce7ef4d7340ad94f3d73efc5aa3"},
+    {file = "outcome-devkit-3.3.3.tar.gz", hash = "sha256:b30bdd1714f3294f8c30f2cc51041028d150f39a6de90e4170ac9f79f4869693"},
+    {file = "outcome_devkit-3.3.3-py3-none-any.whl", hash = "sha256:5c162f3d96f74cf62bdab2739a2c337b667bdd789ea6a3a159e9d11d216cbd36"},
 ]
 outcome-read-toml = [
     {file = "outcome-read-toml-2.0.2.tar.gz", hash = "sha256:027d311076e2b2c0bb3b788d7bf5d451bd5ee2a240442e905b98541488749dd7"},

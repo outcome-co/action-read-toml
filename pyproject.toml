@@ -24,7 +24,7 @@ typer = "^0.3.2"
 makefun = "^1.9.4"
 
 [tool.poetry.dev-dependencies]
-outcome-devkit = "^3.3.2"
+outcome-devkit = "^3.3.3"
 
 [tool.black]
 line-length = 130
