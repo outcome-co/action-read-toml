@@ -758,7 +758,7 @@ wemake-python-styleguide = ">=0.14.0,<0.15.0"
 
 [[package]]
 name = "outcome-read-toml"
-version = "2.0.5"
+version = "2.0.6"
 description = "A small utility to read keys from TOML files."
 category = "main"
 optional = false
@@ -1324,7 +1324,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.8.5"
-content-hash = "d3d798d07eb8c29511b252d90545e93ab43dec19d5d8b27d2dd76f7022431fb7"
+content-hash = "70272c49728c668d8c7817a437f3d81983896c7add8cbeeaf8bd150151d3a7dc"
 
 [metadata.files]
 appdirs = [
@@ -1662,8 +1662,8 @@ outcome-devkit = [
     {file = "outcome_devkit-3.3.7-py3-none-any.whl", hash = "sha256:38152f9259276ddd73cfe50c1df7021728b403a27fad5c536ffc146c8f304a82"},
 ]
 outcome-read-toml = [
-    {file = "outcome-read-toml-2.0.5.tar.gz", hash = "sha256:fb78339b7b2ccd2433844e7575a42c4fb3b1b7d0bb9afeb3d69c1f7559109ab1"},
-    {file = "outcome_read_toml-2.0.5-py3-none-any.whl", hash = "sha256:2a78c6039ad39af2938686d7dbb8e11b6cdfd4830e0708f4183b354a86ca7df0"},
+    {file = "outcome-read-toml-2.0.6.tar.gz", hash = "sha256:98aadd50ff98472d15845bc837b5d57e6483a058506a378995c712f6256e2f5d"},
+    {file = "outcome_read_toml-2.0.6-py3-none-any.whl", hash = "sha256:90f2678e0f9bcd5bc07df5d0b2403796ec332afdc982f6062e5e5d37b5aba4e0"},
 ]
 outcome-utils = [
     {file = "outcome-utils-4.12.5.tar.gz", hash = "sha256:a76419b827d9e5ba92038be259c0823fc77de92575512dbe850b9bb5bcff52e7"},
@@ -1770,6 +1770,8 @@ pyyaml = [
     {file = "PyYAML-5.3.1-cp37-cp37m-win_amd64.whl", hash = "sha256:73f099454b799e05e5ab51423c7bcf361c58d3206fa7b0d555426b1f4d9a3eaf"},
     {file = "PyYAML-5.3.1-cp38-cp38-win32.whl", hash = "sha256:06a0d7ba600ce0b2d2fe2e78453a470b5a6e000a985dd4a4e54e436cc36b0e97"},
     {file = "PyYAML-5.3.1-cp38-cp38-win_amd64.whl", hash = "sha256:95f71d2af0ff4227885f7a6605c37fd53d3a106fcab511b8860ecca9fcf400ee"},
+    {file = "PyYAML-5.3.1-cp39-cp39-win32.whl", hash = "sha256:ad9c67312c84def58f3c04504727ca879cb0013b2517c85a9a253f0cb6380c0a"},
+    {file = "PyYAML-5.3.1-cp39-cp39-win_amd64.whl", hash = "sha256:6034f55dab5fea9e53f436aa68fa3ace2634918e8b5994d82f3621c04ff5ed2e"},
     {file = "PyYAML-5.3.1.tar.gz", hash = "sha256:b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"},
 ]
 regex = [
