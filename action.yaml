@@ -9,7 +9,7 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'docker://outcomeco/action-read-toml:2.0.8'
+  image: 'docker://outcomeco/action-read-toml:2.0.9'
   args:
     - --github-actions
     - --path 
