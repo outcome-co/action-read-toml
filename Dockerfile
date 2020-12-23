@@ -1,4 +1,4 @@
-FROM python:3.8.6 AS build-env
+FROM python:3.8.7 AS build-env
 
 WORKDIR /build
 
